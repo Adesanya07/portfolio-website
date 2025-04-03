@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel Adesanya - Urban Planner & Cybersecurity Specialist</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --light-color: #f0f9ff;
+            --dark-color: #1e293b;
+            --text-color: #334155;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #f8fafc;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icons {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .contact-icons a {
+            color: white;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        
+        .contact-icons a:hover {
+            transform: translateY(-3px);
+        }
+        
+        .header-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%23f8fafc'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li a {
+            display: block;
+            padding: 20px 25px;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-links li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .nav-links li a.active {
+            color: var(--accent-color);
+            border-bottom: 3px solid var(--accent-color);
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--dark-color);
+            font-size: 2.5rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 15px auto 0;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .about-img img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Education & Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 50px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-year {
+            background-color: var(--accent-color);
+            color: white;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-title {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .timeline-subtitle {
+            color: var(--accent-color);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--accent-color);
+            border-radius: 50%;
+            z-index: 1;
+            top: 25px;
+        }
+        
+        .timeline-item:nth-child(odd)::before {
+            right: -12px;
+        }
+        
+        .timeline-item:nth-child(even)::before {
+            left: -12px;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .skills-column {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .skills-category {
+            margin-bottom: 30px;
+        }
+        
+        .skills-category h3 {
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: #e2e8f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background-color: var(--accent-color);
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .skill-list li::before {
+            content: '•';
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Gallery Section */
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .contact-details h3 {
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .form-btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .footer-links {
+            margin: 20px 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links li a {
+                padding: 15px;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::before {
+                left: 19px;
+            }
+            
+            .timeline-item:nth-child(odd)::before {
+                right: auto;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header id="home">
+        <div class="container">
+            <div class="header-content">
+                <img src="image/img2.jpeg" alt="Gabriel Adesanya" class="profile-img">
+                <h1>Gabriel A. Adesanya</h1>
+                <p class="tagline">Urban Planner & Cybersecurity Specialist</p>
+                
+                <div class="contact-icons">
+                    <a href="mailto:gadesanya2001@gmail.com"><i class="fas fa-envelope"></i> gadesanya2001@gmail.com</a>
+                    <a href="tel:+2348143255837"><i class="fas fa-phone"></i> +234 814 325 5837</a>
+                </div>
+            </div>
+        </div>
+        <div class="header-wave"></div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! I'm Gabriel Adesanya, an enthusiastic and dedicated graduate of Urban and Regional Planning with a strong foundation in sustainable development, community planning, and spatial analysis. I'm currently pursuing additional training in Network and Cybersecurity at Codar Tech Africa.</p>
+                    <p>My passion lies at the intersection of urban development and technology security. I believe that as our cities become increasingly connected, ensuring the security and resilience of urban infrastructure is paramount to creating sustainable communities.</p>
+                    <p>With my unique blend of skills in urban planning and cybersecurity, I'm eager to contribute to innovative and secure urban solutions. When I'm not working on urban plans or learning about network security, you can find me swimming, reading books about finance, or watching football to relax.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education & Experience Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education & Experience</h2>
+            <div class="timeline">
+                <!-- Education 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024 - Present</div>
+                        <h3 class="timeline-title">Network and Cybersecurity</h3>
+                        <h4 class="timeline-subtitle">Codar Tech Africa</h4>
+                        <p>Currently pursuing specialized training in network security and cybersecurity fundamentals.</p>
+                    </div>
+                </div>
+                
+                <!-- Education 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018 - 2023</div>
+                        <h3 class="timeline-title">B.Sc. Urban and Regional Planning</h3>
+                        <h4 class="timeline-subtitle">Olabisi Onabanjo University</h4>
+                        <p>Comprehensive education in urban planning principles, spatial analysis, and sustainable development.</p>
+                    </div>
+                </div>
+                
+                <!-- Experience 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024 - 2025</div>
+                        <h3 class="timeline-title">Mandatory Service</h3>
+                        <h4 class="timeline-subtitle">National Youth Service Corps</h4>
+                        <p>Currently serving in the National Youth Service Corps program, applying my skills and knowledge in a professional environment.</p>
+                    </div>
+                </div>
+                
+                <!-- Experience 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">Jan - May 2023</div>
+                        <h3 class="timeline-title">Intern</h3>
+                        <h4 class="timeline-subtitle">Stabilini Visiononi Limited</h4>
+                        <p>Applied urban planning principles in a professional setting, assisting with project planning and development.</p>
+                    </div>
+                </div>
+                
+                <!-- Experience 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">Apr - Jun 2022</div>
+                        <h3 class="timeline-title">Intern</h3>
+                        <h4 class="timeline-subtitle">Urban Space Consulting</h4>
+                        <p>Gained practical experience in urban planning consulting, contributing to client projects and community development initiatives.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Abilities</h2>
+            <div class="skills-container">
+                <div class="skills-column">
+                    <div class="skills-category">
+                        <h3>Technical Skills</h3>
+                        <ul class="skill-list">
+                            <li>Proficient in AutoCAD and GIS for spatial analysis and urban planning</li>
+                            <li>Adept at neighborhood design and creating detailed floor plans</li>
+                            <li>Skilled in map digitization and familiar with Lupa Map software</li>
+                            <li>Knowledgeable in network security principles, firewalls, VPNs, and intrusion detection systems</li>
+                            <li>Experienced in information security roles and controls</li>
+                            <li>Well-versed in hacking concepts and vulnerability assessments</li>
+                            <li>Experienced in penetration testing concepts and processes</li>
+                            <li>Proficient in conducting foot printing through search engines</li>
+                            <li>Skilled in identifying information security threats and attack vectors</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="skills-column">
+                    <div class="skills-category">
+                        <h3>Interpersonal Skills</h3>
+                        <ul class="skill-list">
+                            <li>Excellent communication skills, both oral and written</li>
+                            <li>Strong analytical and critical thinking abilities</li>
+                            <li>Effective team player with a collaborative approach</li>
+                            <li>Highly organized and detail-oriented</li>
+                            <li>Adaptable and flexible in dynamic environments</li>
+                            <li>Demonstrates strong work ethic and professionalism</li>
+                            <li>Positive attitude with eagerness to learn</li>
+                            <li>Commitment to continuous improvement</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skills-category">
+                        <h3>Volunteering & Interests</h3>
+                        <ul class="skill-list">
+                            <li>Serving as Usher at The Redeemed Christian Church of God (2020-present)</li>
+                            <li>Swimming enthusiast</li>
+                            <li>Avid reader of financial literature</li>
+                            <li>Football fan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <h2 class="section-title">Photo Gallery</h2>
+            <h3 class="gallery-title">Professional Life & Personal Moments</h3>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="image/img1.jpeg" >
+                    
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="image/img2.jpeg">
+            
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="image/img3.jpeg">
+                
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="image/img4 (1).jpeg">
+                    
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="image/1mg5.jpeg" >
+                
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>31, Efutide Street, off Brown Road, Aguda Surulere, Lagos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>gadesanya2001@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>+234 814 325 5837</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Current Position</h3>
+                            <p>National Youth Service Corps Member</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <p class="copyright">© 2025 Gabriel A. Adesanya. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Simple JavaScript for the navigation highlighting -->
+    <script>
+        // Get all sections
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        // Add event listener for scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+                
+                // Special case for header
+                if (pageYOffset < 100 && current === '') {
+                    document.querySelector('a[href="#home"]').classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
